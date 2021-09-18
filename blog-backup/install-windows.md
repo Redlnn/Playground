@@ -38,9 +38,9 @@
     > 下面的几个 .Net 框架的下载链接不一定是最新的，详细可以去 [.Net 官网](https://dotnet.microsoft.com/)查看
     [微软常用运行库合集（Visual C++系列）](https://www.ghxi.com/yxkhj.html)
     [.NET Desktop Runtime 5.0.10 64 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.10-windows-x64-installer)
-    [.NET Desktop Runtime 5.0.10 64 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.10-windows-x86-installer)
+    [.NET Desktop Runtime 5.0.10 32 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.10-windows-x86-installer)
     [.NET Desktop Runtime 3.1.19 64 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-3.1.19-windows-x64-installer)
-    [.NET Desktop Runtime 3.1.19 64 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-3.1.19-windows-x86-installer)
+    [.NET Desktop Runtime 3.1.19 32 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-3.1.19-windows-x86-installer)
 10. 任务栏搜索框中搜索【启用或关闭 Windows 功能】并打开，勾选【.Net Framework 3.5 (包含 .NET 2.0 和 3.0)】并确定
 11. 激活系统（激活方法问我）
 12. 打开【Microsoft Store】（系统应用商店），获取所有程序的更新
