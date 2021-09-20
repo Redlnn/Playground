@@ -35,18 +35,18 @@
 7. 开始安装后选择【没有激活密钥】，安装方式为【自定义】，安装位置选择与 C 盘空间总大小和剩余大小一致的分区后开始安装
 8. 安装完并设置好进入系统
 9. 安装必备的运行库（不要改安装位置，一直下一步就行）
-    > 下面的几个 .Net 框架的下载链接不一定是最新的，详细可以去 [.Net 官网](https://dotnet.microsoft.com/)查看  
-      [微软常用运行库合集（Visual C++系列）](https://www.ghxi.com/yxkhj.html)  
-      [.NET Desktop Runtime 5.0.10 64 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.10-windows-x64-installer)  
-      [.NET Desktop Runtime 5.0.10 32 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.10-windows-x86-installer)  
-      [.NET Desktop Runtime 3.1.19 64 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-3.1.19-windows-x64-installer)  
-      [.NET Desktop Runtime 3.1.19 32 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-3.1.19-windows-x86-installer)
+    > 下面的几个 .Net 框架的下载链接不一定是最新的，详细可以去 [.Net 官网](https://dotnet.microsoft.com/)查看
+    > [微软常用运行库合集（Visual C++系列）](https://www.ghxi.com/yxkhj.html)  
+    > [.NET Desktop Runtime 5.0.10 64 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.10-windows-x64-installer)  
+    > [.NET Desktop Runtime 5.0.10 32 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.10-windows-x86-installer)  
+    > [.NET Desktop Runtime 3.1.19 64 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-3.1.19-windows-x64-installer)  
+    > [.NET Desktop Runtime 3.1.19 32 位](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-3.1.19-windows-x86-installer)
 10. 任务栏搜索框中搜索【启用或关闭 Windows 功能】并打开，勾选【.Net Framework 3.5 (包含 .NET 2.0 和 3.0)】并确定
 11. 激活系统（激活方法问我）
 12. 打开【Microsoft Store】（系统应用商店），获取所有程序的更新
 13. 打开主板官网，下载芯片组驱动、网卡驱动、内置声卡驱动（有外部声卡也要下）
     > 具体要下载和安装哪些可以百度  
-      下载和安装驱动前建议先从下面的推荐软件列表下载安装解压缩软件
+    > 下载和安装驱动前建议先从下面的推荐软件列表下载安装解压缩软件
 14. 去 NVIDIA/AMD 官网下载显卡驱动并安装
     > 不知道网址可以百度
 15. 安装外置声卡和摄像头驱动（若有）、LGHUB 等外部设备的驱动和配套软件
