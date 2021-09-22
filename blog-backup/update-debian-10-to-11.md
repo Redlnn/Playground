@@ -180,9 +180,9 @@ aptitude purge "~o"  # 中途可能会提示系统内核将被删除，确认即
 > 第一行超长，请完整复制
 
 ```bash
-aptitude install curl wget binutils bzip2 gzip bzr busybox dnsutils gnupg gnupg2 gnutls-dev gpgv2 net-tools debtags ca-certificates apt-transport-https debian-keyring build-essential cpp c-compiler make cmake g++ gcc gccgo gobjc++-10 gobjc-10 python3-gccjit patch git gdbm-l10n xapian-tools checkinstall libc++1 libc++1-11 libc++-11-dev libcwidget-dev libcurl4-openssl-dev libcurl4-nss-dev libcurl4-gnutls-dev libterm-readline-gnu-perl libterm-readline-perl-perl libtap-harness-archive-perl libreadline-dev libcurl3-gnutls-dev libcurl4-gnutls-dev libtool-bin libffi-dev libssl-dev libtemplate-perl libssl1.1 libxml2-dev debian-faq-zh-cn debian-reference-zh-cn manpages-zh-cn python3-apt
+aptitude install curl wget binutils bzip2 gzip bzr busybox dnsutils gnupg gnupg2 gnutls-dev gpgv2 net-tools debtags ca-certificates apt-transport-https debian-keyring build-essential cpp c-compiler make cmake g++ gcc gccgo gobjc++-10 gobjc-10 python3-gccjit patch git gdbm-l10n xapian-tools checkinstall libc++1 libc++1-11 libc++-11-dev libcwidget-dev libcurl4-openssl-dev libcurl4-nss-dev libcurl4-gnutls-dev libterm-readline-gnu-perl libterm-readline-perl-perl libtap-harness-archive-perl libreadline-dev libcurl3-gnutls-dev libcurl4-gnutls-dev libtool-bin libffi-dev libssl-dev libtemplate-perl libssl1.1 libxml2-dev debian-faq-zh-cn debian-reference-zh-cn manpages-zh-cn python3 python3-apt python3-pycurl python3-wheel python3-pip
 aptitude install maven openjdk-17-jdk golang
-aptitude install python-six pyflakes3 python3 python3-aiohttp python3-pyflakes python3-flake8 python3-gnupg python3-numpy python3-pep8 python3-pip python3-regex python3-yaml
+aptitude install python-six pyflakes3 python3-aiohttp python3-pyflakes python3-flake8 python3-gnupg python3-numpy python3-pep8 python3-regex python3-yaml
 aptitude install tree htop vim p7zip-full p7zip-rar p7zip zip unzip neofetch ffmpeg zsh axel mariadb-client mariadb-server
 aptitude install xfonts-intl-chinese xfonts-intl-chinese-big  # 中文字体，不用 GUI 界面不用装
 ```
