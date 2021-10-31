@@ -5,9 +5,7 @@ Magisk 相关收集
 ## Magisk 本体
 
 - 原版: [GutHub](https://github.com/topjohnwu/Magisk)
-- Alpha版: [Telegram](https://t.me/magiskalpha)
-  > 由于同步上游时为了保持提交树整洁，alpha分支一直采用rebase方式。导致在某次强制推送后，丢失旧版本alpha分支的源代码记录，违反GPL 3.0。  
-    因此，旧的 GitHub 仓库已删除。https://t.me/magiskalpha/343
+- Alpha版: [Telegram](https://t.me/magiskalpha) | [GitHub](https://github.com/vvb2060/magisk/tree/alpha)
 - TheHitMan7版，在新版 Magisk 的基础上保留 Magisk Hide，[GitHub](https://github.com/TheHitMan7/Magisk)
 
 ## Magisk 模块
@@ -30,4 +28,7 @@ Magisk 相关收集
 - Riru - MomoHider: [GitHub](https://github.com/canyie/Riru-MomoHider)
   > `app_zygote_magic` 与 `Zygsisk` 不兼容
 - Riru - Hide My Applist: [GitHub](https://github.com/Dr-TSNG/Hide-My-Applist)
-- Riru - LSPosed: [GitHub](https://github.com/LSPosed/LSPosed) | [Telegram](https://t.me/LSPosed)
+
+#### 需要 Zygisk 的模块
+
+- LSPosed: [GitHub](https://github.com/LSPosed/LSPosed) | [Telegram](https://t.me/LSPosed)
