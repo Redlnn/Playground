@@ -15,7 +15,6 @@ Magisk 相关收集
 - Busybox for Android NDK: [GitHub](https://github.com/Magisk-Modules-Repo/busybox-ndk)
 - ADB & Fastboot for Android NDK: [GitHub](https://github.com/Magisk-Modules-Repo/adb-ndk)
 - MagiskHidePropsConf: [GitHub](https://github.com/Magisk-Modules-Repo/MagiskHidePropsConf)
-- Universal SafetyNet Fix: [GitHub](https://github.com/kdrag0n/safetynet-fix)
 - WiFi Bonding: [GitHub](https://github.com/Magisk-Modules-Repo/wifi-bonding)
 - Uperf: [GitHub](https://github.com/yc9559/uperf)
 
@@ -29,6 +28,7 @@ Magisk 相关收集
   > `app_zygote_magic` 与 `Zygsisk` 不兼容
 - Riru - Hide My Applist: [GitHub](https://github.com/Dr-TSNG/Hide-My-Applist)
 
-#### 需要 Zygisk 的模块
+#### 需要 Riru / Zygisk 的模块
 
 - LSPosed: [GitHub](https://github.com/LSPosed/LSPosed) | [Telegram](https://t.me/LSPosed)
+- Universal SafetyNet Fix: [GitHub](https://github.com/kdrag0n/safetynet-fix)
