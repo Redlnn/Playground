@@ -21,13 +21,13 @@
 - Hydrogen
 - Hydrogen
 - C²ME-Engine
-- Fast Furnace for Fabric -> [GitHub](https://github.com/Tfarcenim/FabricFastFurnace) | [CurseGorge](https://www.curseforge.com/minecraft/mc-mods/fast-furnace-for-fabric)
-- Recipe Cache -> [GitLab](https://gitlab.com/biom4st3r/optimizedcrafting) | [CurseGorge](https://www.curseforge.com/minecraft/mc-mods/recipe-cache)
+- Fast Furnace for Fabric -> [GitHub](https://github.com/Tfarcenim/FabricFastFurnace) | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/fast-furnace-for-fabric)
+- Recipe Cache -> [GitLab](https://gitlab.com/biom4st3r/optimizedcrafting) | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/recipe-cache)
 - ServerCore -> [GitHub](https://github.com/Wesley1808/ServerCore-Fabric) | [Modrinth](https://modrinth.com/mod/servercore)
 - Alternate Current -> [GitHub](https://github.com/SpaceWalkerRS/alternate-current) | [Modrinth](https://modrinth.com/mod/alternate-current)
 - TickTools -> [GitHub](https://github.com/QuiltServerTools/TickTools) | [Modrinth](https://modrinth.com/mod/ticktools)
 - Custom Item Range Combination -> [GitHub](https://github.com/OroArmor/CustomItemRangeCombination) | [Modrinth](https://modrinth.com/mod/custom-item-range-combination)
-- Wither Cage Fix -> [GitHub](https://gitlab.com/supersaiyansubtlety/wither_cage_fix) | [CurseGorge](https://www.curseforge.com/minecraft/mc-mods/wither-cage-fix)
+- Wither Cage Fix -> [GitHub](https://gitlab.com/supersaiyansubtlety/wither_cage_fix) | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/wither-cage-fix)
 - Keep Head Names -> [GitHub](https://github.com/Fourmisain/KeepHeadNames) | [Modrinth](https://modrinth.com/mod/keepheadnames)
 - Illegal Stack Fixer -> [GitHub](https://github.com/MrMelon54/illegal-stack-fixer-fabric) | [Modrinth](https://www.curseforge.com/minecraft/mc-mods/illegal-stack-fixer)
 
