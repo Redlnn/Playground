@@ -22,13 +22,13 @@ Magisk 相关收集
 
 - Riru: [GitHub](https://github.com/RikkaApps/Riru)
 - Riru - Sui: [GitHub](https://github.com/RikkaApps/Sui)
-- Riru - Enhanced mode for Storage Isolation: [GitHub](https://github.com/RikkaApps/StorageRedirect-assets/releases/tag/assets)
 - Riru - Enhanced mode for Magisk Hide: [GitHub](https://github.com/vvb2060/riru-unshare)
 - Riru - MomoHider: [GitHub](https://github.com/canyie/Riru-MomoHider)
-  > `app_zygote_magic` 与 `Zygsisk` 不兼容
-- Riru - Hide My Applist: [GitHub](https://github.com/Dr-TSNG/Hide-My-Applist)
+  > 与 `Zygsisk` 不兼容
 
 #### 需要 Riru / Zygisk 的模块
 
 - LSPosed: [GitHub](https://github.com/LSPosed/LSPosed) | [Telegram](https://t.me/LSPosed)
 - Universal SafetyNet Fix: [GitHub](https://github.com/kdrag0n/safetynet-fix)
+- Hide My Applist: [GitHub](https://github.com/Dr-TSNG/Hide-My-Applist)
+- Enhanced mode for Storage Isolation: [GitHub](https://github.com/RikkaApps/StorageRedirect-assets/releases/tag/assets)
