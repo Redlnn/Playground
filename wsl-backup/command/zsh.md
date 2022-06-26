@@ -15,6 +15,9 @@ sudo aptitude zsh install bat fzf exa git subvison
 ## 修改 .zshrc
 
 ```zsh
+# 修复 gpg，使用 Powerlevel10k 的 Instant Prompt 后必须放到最前面
+export GPG_TTY=$(tty)
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -156,8 +159,6 @@ if [[ $(command -v bat) ]] {
 #export NODE_PATH=$NODE_HOME/lib/node_modules
 export PATH=$PATH:$HOME/.local/bin
 
-# 修复 gpg
-export GPG_TTY=$(tty)
 LANG=zh_CN.UTF-8
 ```
 
