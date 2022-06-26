@@ -118,13 +118,13 @@ if [[ $(command -v exa) ]] {
     [[ -n ${LS_BIN_FILE} ]] || local LS_BIN_FILE=$(whereis ls 2>/dev/null | awk '{print $2}')
     alias lls=${LS_BIN_FILE}
     # lls is the original ls. lls为原版ls
-    alias ls="exa --color=auto"
+    alias ls="exa -F --color=auto" 
     # Exa is a modern version of ls. exa是一款优秀的ls替代品,拥有更好的文件展示体验,输出结果更快,使用rust编写。
-    alias l='exa -lbah --icons'
-    alias la='exa -labgh --icons'
-    alias ll='exa -lbg --icons'
-    alias lsa='exa -lbagR --icons'
-    alias lst='exa -lTabgh --icons' # 输入lst,将展示类似于tree的树状列表。
+    alias l='exa -Flbh --icons'
+    alias la='exa -Flabgh --icons'
+    alias ll='exa -Flbgh --icons'
+    alias lsa='exa -FlabghR --icons'
+    alias lst='exa -FlabghT --icons' # 输入lst,将展示类似于tree的树状列表
 } else {
     alias ls='ls -F --color=auto'
     # color should not be always.
