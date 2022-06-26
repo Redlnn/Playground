@@ -9,7 +9,7 @@ bash -c "$(curl --fail --show-error --silent --location https://raw.githubuserco
 ## 安装一些前置依赖
 
 ```bash
-sudo aptitude install bat fzf exa git subvison
+sudo aptitude zsh install bat fzf exa git subvison
 ```
 
 ## 修改 .zshrc
@@ -160,3 +160,10 @@ export PATH=$PATH:$HOME/.local/bin
 export GPG_TTY=$(tty)
 LANG=zh_CN.UTF-8
 ```
+
+## 更改默认 shell
+
+```bash
+chsh -s /usr/bin/zsh
+```
+
