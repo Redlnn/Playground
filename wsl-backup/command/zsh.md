@@ -8,8 +8,16 @@ bash -c "$(curl --fail --show-error --silent --location https://raw.githubuserco
 
 ## 安装一些前置依赖
 
+### Debian
+
 ```bash
-sudo aptitude zsh install bat fzf exa git subvison
+sudo aptitude zsh install batcat fzf exa git subversion
+```
+
+### Ubuntu
+
+```bash
+sudo aptitude zsh install bat fzf exa git subversion
 ```
 
 ## 修改 .zshrc
