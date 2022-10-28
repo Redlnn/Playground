@@ -89,8 +89,9 @@ zinit snippet OMZL::theme-and-appearance.zsh
 zinit ice svn; zinit snippet OMZ::plugins/extract
 # zinit snippet OMZL::git.zsh
 # zinit snippet OMZP::git
+zinit snippet OMZP::history-substring-search
 zinit snippet OMZP::virtualenv
-zinit ice svn; zinit snippet OMZP::z
+zinit snippet OMZP::z
 [[ -e /usr/lib/command-not-found ]] && zinit snippet OMZP::command-not-found
 zinit ice svn; zinit snippet OMZ::plugins/colored-man-pages
 
@@ -162,6 +163,8 @@ if [[ $(command -v bat) ]] {
     alias cat="bat -pp"
     set_bat_paper_variable
 }
+
+export TERM=xterm-256color
 
 #export PATH=$PATH:$NODE_HOME/bin
 #export NODE_PATH=$NODE_HOME/lib/node_modules
