@@ -26,13 +26,6 @@ sudo aptitude zsh install bat fzf exa git subversion
 # 修复 gpg，使用 Powerlevel10k 的 Instant Prompt 后必须放到最前面
 export GPG_TTY=$(tty)
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ### zsh 设置
 # https://zsh.sourceforge.io/Doc/Release/Options.html
 setopt INTERACTIVE_COMMENTS      # 允许交互式命令行中使用注释
@@ -54,6 +47,8 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh-themes/custom.json)"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -78,7 +73,8 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+#zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 [[ $(command -v fzf) ]] && zinit light Aloxaf/fzf-tab
 
@@ -89,9 +85,9 @@ zinit snippet OMZL::theme-and-appearance.zsh
 zinit ice svn; zinit snippet OMZ::plugins/extract
 # zinit snippet OMZL::git.zsh
 # zinit snippet OMZP::git
-zinit snippet OMZP::history-substring-search
+zinit snippet OMZ::plugins/history-substring-search/history-substring-search.zsh
 zinit snippet OMZP::virtualenv
-zinit snippet OMZP::z
+# zinit snippet OMZP::z
 [[ -e /usr/lib/command-not-found ]] && zinit snippet OMZP::command-not-found
 zinit ice svn; zinit snippet OMZ::plugins/colored-man-pages
 
@@ -127,7 +123,7 @@ if [[ $(command -v exa) ]] {
     [[ -n ${LS_BIN_FILE} ]] || local LS_BIN_FILE=$(whereis ls 2>/dev/null | awk '{print $2}')
     alias lls=${LS_BIN_FILE}
     # lls is the original ls. lls为原版ls
-    alias ls="exa -F --color=auto" 
+    alias ls="exa -F --color=auto"
     # Exa is a modern version of ls. exa是一款优秀的ls替代品,拥有更好的文件展示体验,输出结果更快,使用rust编写。
     alias l='exa -Flbh --icons'
     alias la='exa -Flabgh --icons'
