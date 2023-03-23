@@ -16,9 +16,10 @@ Magisk 相关收集
 - MagiskHidePropsConf: [GitHub](https://github.com/Magisk-Modules-Repo/MagiskHidePropsConf)
 - AsoulOpt: [GitHub](https://github.com/nakixii/Magisk_AsoulOpt)
 
-#### 需要 Riru / Zygisk 的模块
+### 需要 Zygisk 的模块
 
 - LSPosed: [GitHub](https://github.com/LSPosed/LSPosed) | [Telegram](https://t.me/LSPosed)
+- Shamiko: [GitHub Releases](https://github.com/LSPosed/LSPosed.github.io/releases)
 - Universal SafetyNet Fix: [GitHub](https://github.com/kdrag0n/safetynet-fix)
 - Hide My Applist: [GitHub](https://github.com/Dr-TSNG/Hide-My-Applist)
 - Enhanced mode for Storage Isolation: [GitHub](https://github.com/RikkaApps/StorageRedirect-assets/releases/tag/assets)

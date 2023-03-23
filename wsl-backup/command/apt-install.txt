@@ -1,9 +1,0 @@
-bzr gnupg2 gpgv2 apt-transport-https build-essential c-compiler cmake gccgo checkinstall libreadline-dev libssl-dev libxml2-dev
-
-maven openjdk-18-jdk golang
-
-python3-flake8
-
-tree htop p7zip-full p7zip-rar neofetch ffmpeg axel mariadb-client mariadb-server
-
-xfonts-intl-chinese xfonts-intl-chinese-big  # 中文字体，不用 GUI 界面不用装

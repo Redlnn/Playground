@@ -1,6 +1,5 @@
 set linenumbers
 set autoindent
-#set mouse
 set tabsize 4
 set indicator
 set mouse
