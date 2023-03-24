@@ -19,6 +19,23 @@ sudo aptitude install zsh batcat fzf exa git subversion
 sudo aptitude install zsh bat fzf exa git subversion
 ```
 
+## 常用变量
+
+添加到下面内容到 `.zshrc` 或 `.bashrc` 或 `.profile` 或 `.zprofile`
+中，一些软件包的可执行文件可能会放在 `~/bin` 或 `~/.local/bin` 中。
+
+```bash
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+```
+
 ## 设置系统代理及 svn 代理
 
 以 WSL 连接主机中的 HTTP 代理为例：
@@ -29,7 +46,7 @@ sudo aptitude install zsh bat fzf exa git subversion
    New-NetFirewallRule -DisplayName "WSL" -Direction Inbound  -InterfaceAlias "vEthernet (WSL)"  -Action Allow
    ```
 
-2. 设置系统代理（可以添加到 `.zshrc` 或 `.bashrc` 或 `.profile` 中以避免重复设置）
+2. 设置系统代理（可以添加到 `.zshrc` 或 `.bashrc` 或 `.profile` 或 `.zprofile` 中）
    > 下面的 `Redlnn-PC` 为主机的主机名（Hostname/设备名称）
 
    ```bash
@@ -88,10 +105,11 @@ export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 bash -c "$(curl -fsSL https://mirrors.ustc.edu.cn/misc/brew-install.sh)"
 ```
 
-根据提示进行操作，最后按照安装脚本的提示，将以下内容放入 `~/.profile`：
+根据提示进行操作，最后按照安装脚本的提示，将以下内容放入 `~/.profile` 和 `~/.zprofile`：
 
 ```bash
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # Set PATH, MANPATH, etc., for Homebrew.
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
@@ -291,6 +309,8 @@ export TERM=xterm-256color
 #export NODE_PATH=$NODE_HOME/lib/node_modules
 export PATH=$PATH:$HOME/.local/bin
 
+export LC_ALL=zh_CN.UTF-8
+export LANGUAGE=zh_CN.UTF-8
 export LANG=zh_CN.UTF-8
 
 cd ~  # For WSL
