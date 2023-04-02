@@ -250,6 +250,7 @@ alias ......=../../../../..
 alias grep='grep --color=auto'
 alias md='mkdir -p'
 alias rd=rmdir
+alias micro='micro -clipboard terminal'
 
 # Replace ls by exa
 if [[ $(command -v exa) ]] {
