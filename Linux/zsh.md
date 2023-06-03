@@ -19,23 +19,6 @@ sudo aptitude install zsh batcat fzf exa git subversion
 sudo aptitude install zsh bat fzf exa git subversion
 ```
 
-## 常用变量
-
-添加到下面内容到 `.zshrc` 或 `.bashrc` 或 `.profile` 或 `.zprofile`
-中，一些软件包的可执行文件可能会放在 `~/bin` 或 `~/.local/bin` 中。
-
-```bash
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-```
-
 ## 设置系统代理及 svn 代理
 
 以 WSL 连接主机中的 HTTP 代理为例：
@@ -46,8 +29,12 @@ fi
    New-NetFirewallRule -DisplayName "WSL" -Direction Inbound  -InterfaceAlias "vEthernet (WSL)"  -Action Allow
    ```
 
-2. 设置系统代理（可以添加到 `.zshrc` 或 `.bashrc` 或 `.profile` 或 `.zprofile` 中）
-   > 下面的 `Redlnn-PC` 为主机的主机名（Hostname/设备名称）
+2. 设置系统代理
+
+   以下内容可以添加到 `.zshrc` 或 `.bashrc` 或 `.profile` 或 `.zprofile`
+   中，也可以写一个 `proxy.sh` 放在里面，有需要时再 `source proxy.sh`
+
+   > 以下中的 `Redlnn-PC` 为 Windows 的主机名（Hostname/设备名称）
 
    ```bash
    export http_proxy=http://Redlnn-PC.local:7890
@@ -99,7 +86,7 @@ export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 ```
 
-### 运行安装脚本
+### 运行 Homebrew 安装脚本
 
 ```bash
 bash -c "$(curl -fsSL https://mirrors.ustc.edu.cn/misc/brew-install.sh)"
@@ -123,6 +110,46 @@ brew install jandedobbeleer/oh-my-posh/oh-my-posh
 
 > 更新的话使用 `brew update && brew upgrade oh-my-posh`
 
+## 添加常用变量
+
+添加到下面内容到 `.zshrc` 或 `.zshenv` 或 `.zprofile` 或 `.bashrc`
+中，一些软件包的可执行文件可能会放在 `~/bin` 或 `~/.local/bin` 中。
+
+```bash
+#export NODE_HOME=
+#export PATH=$PATH:$NODE_HOME/bin
+#export NODE_PATH=$NODE_HOME/lib/node_modules
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+export GDK_DPI_SCALE=1.5 # 4K屏150%放大时设置GDK放大率，WSLg用
+
+# 中文，如果需要使用 tty 则慎改语言，因为 tty 不支持 Unicode 字符
+# 对于 Ubuntu，使用前需修改 /etc/locale.gen，然后用 sudo locale-gen 生成语言
+# 对于 Debian，sudo apt install locales -y && sudo dpkg-reconfigure locales
+# 为了保证兼容性，千万不要改系统默认语言
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN.UTF-8
+export LC_ALL=zh_CN.UTF-8
+```
+
+### Ubuntu 的特殊环境变量
+
+详细见 [zsh官网](https://wiki.zshell.dev/docs/guides/customization#disabling-system-wide-compinit-call-ubuntu)
+
+```zsh
+# ~/.zshenv
+skip_global_compinit=1
+```
+
 ## 修改 .zshrc
 
 将 `.zshrc` 内所有内容替换为下面的内容，包含以下操作：
@@ -132,15 +159,6 @@ brew install jandedobbeleer/oh-my-posh/oh-my-posh
 3. 设置 zsh 历史记录，供其他插件使用
 4. 初始化 Zinit
 5. 加载插件及其依赖
-
-   > 1. oh-my-zsh 插件依赖：clipboard
-   > 2. 用 svn 加载 oh-my-zsh 插件：extract（一条命令解压大部分压缩文件）
-   > 3. oh-my-zsh 插件：virtualenv
-   > 4. oh-my-zsh 插件：command-not-found（执行未知命令时提示安装包）
-   > 5. oh-my-zsh 插件：plugins/colored-man-pages（彩色 man 手册）
-   > 6. zsh 插件：fast-syntax-highlighting（更快的命令高亮）
-   > 7. zsh 插件：zsh-completions
-   > 8. zsh 插件：zsh-autosuggestions
 
 ```bash
 # Fix GPG，must be written first when use Instant Prompt of Powerlevel10k
@@ -214,6 +232,8 @@ zinit light-mode for \
 #zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # 使用 fzf 实现命令 Tab 键补全
+ALOXAF_FZF_TAB_EXTRA=true
+source ~/.config/aloxaf_fzf_tab_extra_opts.zsh
 [[ $(command -v fzf) ]] && zinit light Aloxaf/fzf-tab
 
 # Load plugin from oh-my-zsh
@@ -222,11 +242,13 @@ zinit light-mode for \
 zinit snippet OMZL::clipboard.zsh
 zinit snippet OMZL::grep.zsh
 zinit snippet OMZL::key-bindings.zsh
-zinit ice svn; zinit snippet OMZ::plugins/extract
+zinit ice svn; zinit snippet OMZ::plugins/extract # 解压插件，命令：x 或 extract
+zinit ice svn; zinit snippet OMZ::plugins/z # 快速跳转目录插件，命令：z
 # zinit snippet OMZL::git.zsh
 # zinit snippet OMZP::git
 zinit snippet OMZP::virtualenv
 # zinit snippet OMZP::z
+zinit snippet OMZP::sudo # 按两次ESC键,可以在当前命令前加上sudo前缀
 [[ -e /usr/lib/command-not-found ]] && zinit snippet OMZP::command-not-found
 zinit ice svn; zinit snippet OMZ::plugins/colored-man-pages
 
@@ -243,14 +265,15 @@ zinit wait lucid for \
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ALIASES
+alias ..='cd ..'
 alias ...=../..
 alias ....=../../..
 alias .....=../../../..
 alias ......=../../../../..
+alias _='sudo '
 alias grep='grep --color=auto'
 alias md='mkdir -p'
 alias rd=rmdir
-alias micro='micro -clipboard terminal'
 
 # Replace ls by exa
 if [[ $(command -v exa) ]] {
@@ -283,6 +306,7 @@ if [[ $(command -v exa) ]] {
 }
 
 # Replace cat by batcat
+# bat是cat的替代品，支持多语言 语法高亮。
 set_bat_paper_variable() {
     unset CAT_BIN_FILE i
     for i (/bin/cat ${PREFIX}/bin/cat /usr/bin/cat /usr/local/bin/cat) {
@@ -298,21 +322,16 @@ set_bat_paper_variable() {
     typeset -g BAT_PAGER="less -m -RFQ" # You can type q to quit bat. 输q退出bat的页面视图
 }
 
-if [[ $(command -v bat) ]] {
-    alias cat="bat -pp"
-    set_bat_paper_variable
+for i (batcat bat) {
+    if [[ $(command -v ${i}) ]] {
+        alias cat="${i} -pp"
+        set_bat_paper_variable
+        break
+    }
 }
 
 # 256 Color
 export TERM=xterm-256color
-
-#export PATH=$PATH:$NODE_HOME/bin
-#export NODE_PATH=$NODE_HOME/lib/node_modules
-export PATH=$PATH:$HOME/.local/bin
-
-export LC_ALL=zh_CN.UTF-8
-export LANGUAGE=zh_CN.UTF-8
-export LANG=zh_CN.UTF-8
 
 cd ~  # For WSL
 ```
@@ -321,4 +340,49 @@ cd ~  # For WSL
 
 ```bash
 chsh -s /usr/bin/zsh
+```
+
+---
+
+### `aloxaf_fzf_tab_extra_opts.zsh` 文件内容
+
+```zsh
+#!/usr/bin/env zsh
+#分组和补全项颜色
+aloxaf_fzf_tab_extra_opt_01() {
+    zstyle ':completion:*:descriptions' format '[%d]'
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+}
+###############
+aloxaf_fzf_tab_extra_opt_02() {
+    #FZF-TAB右侧窗口配置
+    local extract="
+# trim input
+local in=\${\${\"\$(<{f})\"%\$'\0'*}#*\$'\0'}
+# get ctxt for current completion
+local -A ctxt=(\"\${(@ps:\2:)CTXT}\")
+# real path
+local realpath=\${ctxt[IPREFIX]}\${ctxt[hpre]}\$in
+realpath=\${(Qe)~realpath}
+"
+    #zstyle ':fzf-tab:*' single-group ''
+    #zstyle ':fzf-tab:complete:_zlua:*' query-string input
+    zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap
+    zstyle ':fzf-tab:complete:(cd|ls|exa|bat|cat|nano|vi|vim):*' extra-opts --preview=$extract'ls -1 -A --color=always $realpath'
+    #zstyle ':fzf-tab:complete:(cd|ls|nano|vi|vim):*' extra-opts --preview=$extract'ls -1A --color=auto ${~ctxt[hpre]}$in 2>/dev/null'
+}
+#################
+check_fzf_tab_variable(){
+case ${ALOXAF_FZF_TAB_EXTRA} in
+false) ;;
+true)
+    aloxaf_fzf_tab_extra_opt_01
+    aloxaf_fzf_tab_extra_opt_02
+    ;;
+01) aloxaf_fzf_tab_extra_opt_01 ;;
+02) aloxaf_fzf_tab_extra_opt_02 ;;
+esac
+}
+##################
+check_fzf_tab_variable
 ```
