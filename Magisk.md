@@ -21,6 +21,7 @@ Magisk 相关收集
 - LSPosed: [GitHub](https://github.com/LSPosed/LSPosed) | [Telegram](https://t.me/LSPosed)
 - Shamiko: [GitHub Releases](https://github.com/LSPosed/LSPosed.github.io/releases)
 - Universal SafetyNet Fix: [GitHub](https://github.com/kdrag0n/safetynet-fix)
+- Universal SafetyNet Fix mod: [GitHub](https://github.com/Displax/safetynet-fix)
 - Hide My Applist: [GitHub](https://github.com/Dr-TSNG/Hide-My-Applist)
 - Enhanced mode for Storage Isolation: [GitHub](https://github.com/RikkaApps/StorageRedirect-assets/releases/tag/assets)
 - Sui: [GitHub](https://github.com/RikkaApps/Sui)
