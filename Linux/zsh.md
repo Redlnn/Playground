@@ -1,4 +1,6 @@
-# Zinit + oh-my-posh
+# zsh 配置
+
+插件和主题：Zinit + oh-my-posh
 
 配置文件中也包含 `Powerlevel10k` 的配置，注释或取消注释相应行就行。
 
@@ -20,6 +22,8 @@ sudo aptitude install zsh bat fzf exa git subversion
 ```
 
 ## 设置系统代理及 svn 代理
+
+> 不适用于 WSL2 2.0（不是 WSL2）
 
 以 WSL 连接主机中的 HTTP 代理为例：
 
