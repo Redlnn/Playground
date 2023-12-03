@@ -104,6 +104,11 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Set PATH, MANPATH, etc., for Homebrew.
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+
+go env -w GOPROXY=https://goproxy.cn
+export GOPROXY=https://goproxy.cn
 ```
 
 ### 安装 oh-my-posh
@@ -116,7 +121,7 @@ brew install jandedobbeleer/oh-my-posh/oh-my-posh
 
 ## 添加常用变量
 
-添加到下面内容到 `.zshrc` 或 `.zshenv` 或 `.zprofile` 或 `.bashrc`
+添加到下面内容到 `.zprofile` 或 `.profile`
 中，一些软件包的可执行文件可能会放在 `~/bin` 或 `~/.local/bin` 中。
 
 ```bash
@@ -174,6 +179,7 @@ export GPG_TTY=$(tty)
 function _gpg-agent_update-tty_preexec {
   gpg-connect-agent updatestartuptty /bye &>/dev/null
 }
+
 autoload -U add-zsh-hook
 add-zsh-hook preexec _gpg-agent_update-tty_preexec
 
@@ -278,6 +284,7 @@ alias _='sudo '
 alias grep='grep --color=auto'
 alias md='mkdir -p'
 alias rd=rmdir
+alias micro='micro -clipboard terminal'
 
 # Replace ls by exa
 if [[ $(command -v exa) ]] {
