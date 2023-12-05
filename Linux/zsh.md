@@ -191,9 +191,6 @@ if [[ $(gpgconf --list-options gpg-agent 2>/dev/null | awk -F: '$1=="enable-ssh-
   fi
 fi
 
-# Load oh-my-posh
-eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh-themes/custom.json)"
-
 # See https://zsh.sourceforge.io/Doc/Release/Options.html
 setopt INTERACTIVE_COMMENTS      # Allow use comments in command-line
 # Set history for zsh plugins
@@ -271,6 +268,9 @@ zinit wait lucid for \
     atload"!_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions
 
+# Load oh-my-posh
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh-themes/custom.json)"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -343,6 +343,7 @@ for i (batcat bat) {
 
 # 256 Color
 export TERM=xterm-256color
+
 
 cd ~  # For WSL
 ```
