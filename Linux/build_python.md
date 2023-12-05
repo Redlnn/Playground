@@ -4,7 +4,7 @@
 
    ```sh
    sudo apt install build-essential llvm clang lld
-   sudo apt install gdb lcov pkg-config libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev libncurses-dev libreadline-dev libsqlite3-dev libssl-dev lzma lzma-dev tk-dev uuid-dev zlib1g-dev
+   sudo apt install gdb lcov pkg-config libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev libncurses-dev libreadline-dev libsqlite3-dev libssl-dev lzma lzma-dev tk-dev uuid-dev zlib1g-dev libxml2-dev
    ```
 
 2. 查看系统自带的 Python 编译选项
