@@ -10,7 +10,7 @@
 2. 查看系统自带的 Python 编译选项
 
    ```sh
-   $ python3 -c "import sysconfig; print(sysconfig.get_config_var('CONFIG_ARGS'))""
+   $ python3 -c "import sysconfig; print(sysconfig.get_config_var('CONFIG_ARGS'))"
    '--enable-shared' '--prefix=/usr' '--libdir=/usr/lib/x86_64-linux-gnu' '--enable-ipv6'
    '--enable-loadable-sqlite-extensions' '--with-dbmliborder=bdb:gdbm' '--with-computed-gotos'
    '--without-ensurepip' '--with-system-expat' '--with-dtrace' '--with-wheel-pkg-dir=/usr/share/python-wheels/'
