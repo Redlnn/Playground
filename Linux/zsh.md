@@ -271,6 +271,7 @@ zinit wait lucid for \
 # Load oh-my-posh
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh-themes/custom.json)"
 
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -286,8 +287,8 @@ alias md='mkdir -p'
 alias rd=rmdir
 alias micro='micro -clipboard terminal'
 
-# Replace ls by exa
-if [[ $(command -v exa) ]] {
+# Replace ls by eza
+if [[ $(command -v eza) ]] {
     DISABLE_LS_COLORS=true
     unset LS_BIN_FILE
     for i (/bin/ls /usr/bin/ls /usr/local/bin/ls) {
@@ -299,13 +300,13 @@ if [[ $(command -v exa) ]] {
     [[ -n ${LS_BIN_FILE} ]] || local LS_BIN_FILE=$(whereis ls 2>/dev/null | awk '{print $2}')
     alias lls=${LS_BIN_FILE}
     # lls is the original ls. lls为原版ls
-    alias ls="exa -F --color=auto"
-    # Exa is a modern version of ls. exa是一款优秀的ls替代品,拥有更好的文件展示体验,输出结果更快,使用rust编写。
-    alias l='exa -Flbh --icons'
-    alias la='exa -Flabgh --icons'
-    alias ll='exa -Flbgh --icons'
-    alias lsa='exa -FlabghR --icons'
-    alias lst='exa -FlabghT --icons' # 输入lst,将展示类似于tree的树状列表
+    alias ls="eza -F --color=auto"
+    # eza is a modern version of ls. eza是一款优秀的ls替代品,拥有更好的文件展示体验,输出结果更快,使用rust编写。
+    alias l='eza -Flbh --icons'
+    alias la='eza -Flabgh --icons'
+     alias ll='eza -Flbgh --icons'
+    alias lsa='eza -FlabghR --icons'
+    alias lst='eza -FlabghT --icons' # 输入lst,将展示类似于tree的树状列表
 } else {
     alias ls='ls -F --color=auto'
     # color should not be always.
@@ -343,8 +344,6 @@ for i (batcat bat) {
 
 # 256 Color
 export TERM=xterm-256color
-
-
 cd ~  # For WSL
 ```
 
