@@ -300,21 +300,21 @@ if [[ $(command -v eza) ]] {
     [[ -n ${LS_BIN_FILE} ]] || local LS_BIN_FILE=$(whereis ls 2>/dev/null | awk '{print $2}')
     alias lls=${LS_BIN_FILE}
     # lls is the original ls. lls为原版ls
-    alias ls="eza -F --color=auto"
+    alias ls="eza -F"
     # eza is a modern version of ls. eza是一款优秀的ls替代品,拥有更好的文件展示体验,输出结果更快,使用rust编写。
-    alias l='eza -Flbh --icons'
-    alias la='eza -Flabgh --icons'
-     alias ll='eza -Flbgh --icons'
-    alias lsa='eza -FlabghR --icons'
-    alias lst='eza -FlabghT --icons' # 输入lst,将展示类似于tree的树状列表
+    alias l='eza -F -lbh --icons'
+    alias la='eza -F -labgh --icons'
+     alias ll='eza -F -lbgh --icons'
+    alias lsa='eza -F -labghR --icons'
+    alias lst='eza -F -labghT --icons' # 输入lst,将展示类似于tree的树状列表
 } else {
     alias ls='ls -F --color=auto'
     # color should not be always.
     alias lst='tree -pCsh'
-    alias l='ls -Flah --color'
-    alias la='ls -FlAh --color'
-    alias ll='ls -Flh --color'
-    alias lsa='ls -Flah --color'
+    alias l='ls -F -lah --color'
+    alias la='ls -F -lAh --color'
+    alias ll='ls -F -lh --color'
+    alias lsa='ls -F -lah --color'
 }
 
 # Replace cat by batcat
@@ -344,7 +344,9 @@ for i (batcat bat) {
 
 # 256 Color
 export TERM=xterm-256color
-cd ~  # For WSL
+
+# For WSL
+cd ~
 ```
 
 ## 更改默认 shell
