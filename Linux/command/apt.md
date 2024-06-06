@@ -4,7 +4,7 @@
 sudo apt install apt-transport-https aptitude
 sudo apt install build-essential checkinstall cmake clang llvm lld golang-go gccgo
 sudo apt install gdb lcov pkg-config libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev libncurses-dev libreadline-dev libsqlite3-dev libssl-dev lzma lzma-dev tk-dev uuid-dev zlib1g-dev libxml2-dev
-sudo apt install zsh bat fzf exa git subversion gnupg gnupg2 gpgv2
+sudo apt install zsh bat fzf eza git subversion gnupg gnupg2 gpgv2
 sudo apt install wget curl nano micro tree htop p7zip-full p7zip-rar neofetch ffmpeg axel mariadb-client
 sudo apt install mariadb-server
 sudo apt install manpages-zh locales
