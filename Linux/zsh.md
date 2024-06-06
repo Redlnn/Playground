@@ -12,13 +12,13 @@ Zinit 用于高性能地加载 oh-my-zsh 或其他外部的 zsh 插件，`oh-my-
 ### Debian
 
 ```bash
-sudo aptitude install zsh batcat fzf exa git subversion
+sudo aptitude install zsh batcat fzf eza git subversion
 ```
 
 ### Ubuntu
 
 ```bash
-sudo aptitude install zsh bat fzf exa git subversion
+sudo aptitude install zsh bat fzf eza git subversion
 ```
 
 ## 设置系统代理及 svn 代理
@@ -379,7 +379,7 @@ realpath=\${(Qe)~realpath}
     #zstyle ':fzf-tab:*' single-group ''
     #zstyle ':fzf-tab:complete:_zlua:*' query-string input
     zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap
-    zstyle ':fzf-tab:complete:(cd|ls|exa|bat|cat|nano|vi|vim):*' extra-opts --preview=$extract'ls -1 -A --color=always $realpath'
+    zstyle ':fzf-tab:complete:(cd|ls|eza|bat|cat|nano|vi|vim):*' extra-opts --preview=$extract'ls -1 -A --color=always $realpath'
     #zstyle ':fzf-tab:complete:(cd|ls|nano|vi|vim):*' extra-opts --preview=$extract'ls -1A --color=auto ${~ctxt[hpre]}$in 2>/dev/null'
 }
 #################
