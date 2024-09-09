@@ -12,13 +12,13 @@ Zinit 用于高性能地加载 oh-my-zsh 或其他外部的 zsh 插件，`oh-my-
 ### Debian
 
 ```bash
-sudo aptitude install zsh batcat fzf eza git subversion
+sudo aptitude install zsh batcat fzf eza git
 ```
 
 ### Ubuntu
 
 ```bash
-sudo aptitude install zsh bat fzf eza git subversion
+sudo aptitude install zsh bat fzf eza git
 ```
 
 ## 设置系统代理及 svn 代理
@@ -51,18 +51,7 @@ sudo aptitude install zsh bat fzf eza git subversion
    export NO_PROXY="127.0.0.1,localhost,127.0.1.1,Redlnn-PC,Redlnn-PC."
    ```
 
-3. 设置 SVN 代理
-
-   执行一次 `svn` 命令，编辑 `~/.subversion/servers` 文件，取消注释 `[global]` 下的
-   `http-proxy-host` 和 `http-proxy-port` 并修改，如下：
-
-   ```ini
-   [global]
-   http-proxy-host = Redlnn-PC.local
-   http-proxy-port = 7890
-   ```
-
-4. 设置 Git 代理
+3. 设置 Git 代理
 
    编辑 `./.gitconfig` 文件，添加或合并以下配置
 
@@ -170,11 +159,11 @@ skip_global_compinit=1
 5. 加载插件及其依赖
 
 ```bash
-# Fix GPG，must be written first when use Instant Prompt of Powerlevel10k
+# 修复 GnuPG 的 TTY 识别问题，如果有 Powerlevel10k，则必须在 p10k 前使用
 # See https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/gpg-agent/gpg-agent.plugin.zsh
 export GPG_TTY=$(tty)
 
-# Fix for passphrase prompt on the correct tty
+# 修复 GnuPG 的 密码提示
 # See https://www.gnupg.org/documentation/manuals/gnupg/Agent-Options.html#option-_002d_002denable_002dssh_002dsupport
 function _gpg-agent_update-tty_preexec {
   gpg-connect-agent updatestartuptty /bye &>/dev/null
@@ -183,6 +172,7 @@ function _gpg-agent_update-tty_preexec {
 autoload -U add-zsh-hook
 add-zsh-hook preexec _gpg-agent_update-tty_preexec
 
+# 修复 GnuPG 的 ssh agent 问题
 # If enable-ssh-support is set, fix ssh agent integration
 if [[ $(gpgconf --list-options gpg-agent 2>/dev/null | awk -F: '$1=="enable-ssh-support" {print $10}') = 1 ]]; then
   unset SSH_AGENT_PID
@@ -235,6 +225,32 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+# 修复 Github 不支持 SVN 协议后，zinit 无法加载 Oh-My-Zsh 的文件夹插件的问题
+# 来自：https://github.com/zdharma-continuum/zinit/discussions/651
+setopt RE_MATCH_PCRE   # _fix-omz-plugin function uses this regex style
+
+# Workaround for zinit issue#504: remove subversion dependency. Function clones all files in plugin
+# directory (on github) that might be useful to zinit snippet directory. Should only be invoked
+# via zinit atclone"_fix-omz-plugin"
+_fix-omz-plugin() {
+  if [[ ! -f ._zinit/teleid ]] then return 0; fi
+  if [[ ! $(cat ._zinit/teleid) =~ "^OMZP::.*" ]] then return 0; fi
+  local OMZP_NAME=$(cat ._zinit/teleid | sed -n 's/OMZP:://p')
+  git clone --quiet --no-checkout --depth=1 --filter=tree:0 https://github.com/ohmyzsh/ohmyzsh
+  cd ohmyzsh
+  git sparse-checkout set --no-cone plugins/$OMZP_NAME
+  git checkout --quiet
+  cd ..
+  local OMZP_PATH="ohmyzsh/plugins/$OMZP_NAME"
+  local file
+  for file in ohmyzsh/plugins/$OMZP_NAME/*~(.gitignore|*.plugin.zsh)(D); do
+    local filename="${file:t}"
+    echo "Copying $file to $(pwd)/$filename..."
+    cp $file $filename
+  done
+  rm -rf ohmyzsh
+}
+
 # Load Powerlevel10k
 #zinit ice depth=1; zinit light romkatv/powerlevel10k
 
@@ -243,21 +259,34 @@ ALOXAF_FZF_TAB_EXTRA=true
 source ~/.config/aloxaf_fzf_tab_extra_opts.zsh
 [[ $(command -v fzf) ]] && zinit light Aloxaf/fzf-tab
 
-# Load plugin from oh-my-zsh
+# 加载 Oh-My-Zsh 插件
 # See https://github.com/ohmyzsh/ohmyzsh/blob/master/lib
 # See https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins
-zinit snippet OMZL::clipboard.zsh
-zinit snippet OMZL::grep.zsh
-zinit snippet OMZL::key-bindings.zsh
-zinit ice svn; zinit snippet OMZ::plugins/extract # 解压插件，命令：x 或 extract
-zinit ice svn; zinit snippet OMZ::plugins/z # 快速跳转目录插件，命令：z
 # zinit snippet OMZL::git.zsh
 # zinit snippet OMZP::git
-zinit snippet OMZP::virtualenv
-# zinit snippet OMZP::z
-zinit snippet OMZP::sudo # 按两次ESC键,可以在当前命令前加上sudo前缀
-[[ -e /usr/lib/command-not-found ]] && zinit snippet OMZP::command-not-found
-zinit ice svn; zinit snippet OMZ::plugins/colored-man-pages
+# sudo: 按两次ESC键,可以在当前命令前加上sudo前缀
+zinit wait lucid for \
+    OMZL::clipboard.zsh \
+    OMZL::grep.zsh \
+    OMZL::key-bindings.zsh \
+    OMZP::virtualenv \
+    OMZP::sudo
+
+if [[ -e /usr/lib/command-not-found ]] {
+    zinit ice wait lucid
+    zinit snippet OMZP::command-not-found
+}
+
+# 使 man 变彩色
+# 解压插件，命令：x 或 extract
+# 快速跳转目录插件，命令：z
+zinit wait lucid for \
+    atpull"%atclone" atclone"_fix-omz-plugin" \
+        OMZP::colored-man-pages \
+    atpull"%atclone" atclone"_fix-omz-plugin" \
+        OMZP::extract \
+    atpull"%atclone" atclone"_fix-omz-plugin" \
+        OMZP::z
 
 # 命令高亮+智能提示+一键补全
 zinit wait lucid for \
@@ -344,7 +373,6 @@ for i (batcat bat) {
 
 # 256 Color
 export TERM=xterm-256color
-
 # For WSL
 cd ~
 ```
